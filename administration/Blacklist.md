@@ -5,7 +5,7 @@ StarRocks的客户可以维护一个SQL黑名单，在某些场景下禁止指�
 
 ## 语法
 
-这个功能通过FE变量enable_sql_blacklist控制(默认关闭)，开启命令如下：
+这个功能通过FE配置enable_sql_blacklist控制(默认关闭)，开启命令如下：
 
 ~~~sql
 admin set frontend config ("enable_sql_blacklist" = "true")
