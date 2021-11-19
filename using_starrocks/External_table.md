@@ -180,7 +180,7 @@ select * from es_table where esquery(k4, ' {
 
 ### 创建Hive资源
 
-StarRocks使用Hive资源来管理使用到的Hive集群相关配置，如Hive meta store地址等，一个Hive资源对应一个Hive集群。创建Hive外表的时候需要指定使用哪个Hive资源。
+StarRocks使用Hive资源来管理使用到的Hive集群相关配置，如Hive Metastore地址等，一个Hive资源对应一个Hive集群。创建Hive外表的时候需要指定使用哪个Hive资源。
 
 ~~~sql
 -- 创建一个名为hive0的Hive资源
