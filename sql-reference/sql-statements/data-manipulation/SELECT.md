@@ -321,9 +321,9 @@ mysql> select varchar_column from big_table order by varchar_column limit 1 offs
 1 row in set (0.02 sec)
 ```
 
-注：在没有order by的情况下使用offset语法是允许的，但是此时offset无意义.
+注：在没有order by的情况下使用offset语法是允许的，但是此时offset无意义。
 
-这种情况只取limit的值，忽略掉offset的值。因此在没有order by的情况下.
+这种情况只取limit的值，忽略掉offset的值。因此在没有order by的情况下。
 
 offset超过结果集的最大行数依然是有结果的。建议用户使用offset时一定要带上order by。
 
@@ -397,17 +397,17 @@ order by tiny_column limit 4;
 Distinct操作符对结果集进行去重。示例：
 
 ```SQL
--- Returns the unique values from one column.
+-- Returns the unique values from one column。
 select distinct tiny_column from big_table limit 2;
 
--- Returns the unique combinations of values from multiple columns.
+-- Returns the unique combinations of values from multiple columns。
 select distinct tiny_column, int_column from big_table limit 2;
 ```
 
 distinct可以和聚合函数(通常是count函数)一同使用，count(disitnct)用于计算出一个列或多个列上包含多少不同的组合。
 
 ```SQL
--- Counts the unique values from one column.
+-- Counts the unique values from one column。
 select count(distinct tiny_column) from small_table;
 ```
 
@@ -421,14 +421,14 @@ select count(distinct tiny_column) from small_table;
 ```
 
 ```SQL
--- Counts the unique combinations of values from multiple columns.
+-- Counts the unique combinations of values from multiple columns。
 select count(distinct tiny_column, int_column) from big_table limit 2;
 ```
 
 StarRocks支持多个聚合函数同时使用distinct。
 
 ```SQL
--- Count the unique value from multiple aggregation function separately.
+-- Count the unique value from multiple aggregation function separately。
 select count(distinct tiny_column, int_column), count(distinct varchar_column) from big_table;
 ```
 
@@ -506,7 +506,7 @@ SELECT name FROM table WHERE salary = abs((SELECT MAX(salary) FROM table));
 
 ```sql
 -- Define one subquery at the outer level, and another at the inner level as part of the
--- initial stage of the UNION ALL query.
+-- initial stage of the UNION ALL query。
 with t1 as (select 1) (with t2 as (select 2)
 
 select * from t2) union all select * from t1;

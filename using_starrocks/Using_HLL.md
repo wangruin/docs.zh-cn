@@ -11,7 +11,7 @@ HyperLogLog是一种近似的去重算法，能够使用极少的存储空间计
 
 * X=1， 概率P(X=1)=1/2
 * X=2， 概率P(X=2)=1/4
-* ...
+* ..。
 * X=n， 概率P(X=n)=(1/2)<sup>n</sup>
 
 我们用试验A构造随机试验B: 做N次独立重复试验A， 产生N个独立同分布的随机变量X<sub>1</sub>, X<sub>2</sub>, X<sub>3</sub>, ..., X<sub>N</sub>; 取这组随机变量的最大值为X<sub>max</sub>。结合极大似然估算的方法，N的估算值为2<sup>X<sub>max</sub></sup>。
@@ -26,7 +26,7 @@ HyperLogLog是一种近似的去重算法，能够使用极少的存储空间计
 事实上，HLL算法根据元素哈希值的低k位，将元素划分到K=2<sup>k</sup>个桶中，统计桶内元素的第k+1位起bit 1首次出现位置的最大值m<sub>1</sub>, m<sub>2</sub>,..., m<sub>k</sub>, 估算桶内不重复元素元素的个数2<sup>m<sub>1</sub></sup>, 2<sup>m<sub>2</sub></sup>,..., 2<sup>m<sub>k</sub></sup>, 数据集的不重复元素个数为桶的数量乘以桶内不重复元素个数的调和平均数: N = K(K/(2<sup>\-m<sub>1</sub></sup>+2<sup>\-m<sub>2</sub></sup>,..., 2<sup>\-m<sub>K</sub></sup>))。
 <br/>
 
-HLL为了使结果更加精确，用修正因子和估算结果相乘， 得出最终结果.
+HLL为了使结果更加精确，用修正因子和估算结果相乘， 得出最终结果。
 
 为了方面读者的理解， 我们参考文章[https://gist.github.com/avibryant/8275649,](https://gist.github.com/avibryant/8275649) 用StarRocks的SQL语句实现HLL去重算法:
 
@@ -47,7 +47,7 @@ FROM(select(murmur_hash3_32(c2) & 1023) AS bucket,
 * 分组聚合的结果作为子查询， 最后求所有桶的估算值的调和平均数， 乘以桶数和修正因子。
 * 注意空桶计数为1。
 
-上述算法在数据规模较大时， 误差很低.
+上述算法在数据规模较大时， 误差很低。
 
 这就是 HLL 算法的核心思想。有兴趣的同学可以参考[HyperLogLog论文](http://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf)。
 
