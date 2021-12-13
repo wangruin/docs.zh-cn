@@ -86,15 +86,15 @@ bin/start_fe.sh --daemon
 * 查看日志log/fe.log确认。
 
 ```Plain Text
-2020-03-16 20:32:14,686 INFO 1 [FeServer.start():46] thrift server started。
+2020-03-16 20:32:14,686 INFO 1 [FeServer.start():46] thrift server started.
 
 2020-03-16 20:32:14,696 INFO 1 [NMysqlServer.start():71] Open mysql server success on 9030
 
-2020-03-16 20:32:14,696 INFO 1 [QeService.start():60] QE service start。
+2020-03-16 20:32:14,696 INFO 1 [QeService.start():60] QE service start.
 
 2020-03-16 20:32:14,825 INFO 76 [HttpServer$HttpServerThread.run():210] HttpServer started with port 8030
 
-..。
+...
 ```
 
 * 如果FE启动失败，可能是由于端口号被占用，修改配置文件conf/fe.conf中的端口号http_port。
@@ -223,32 +223,32 @@ mysql> SHOW PROC '/frontends'\G
     Name: 172.26.108.172_9010_1584965098874
       IP: 172.26.108.172
 HostName: starrocks-sandbox01
-.....。
+......
     Role: FOLLOWER
 IsMaster: true
-.....。
+......
    Alive: true
-.....。
+......
 ********************* 2. row **********************
     Name: 172.26.108.174_9010_1584965098874
       IP: 172.26.108.174
 HostName: starrocks-sandbox02
-.....。
+......
     Role: FOLLOWER
 IsMaster: false
-.....。
+......
    Alive: true
-.....。
+......
 ********************* 3. row **********************
     Name: 172.26.108.175_9010_1584965098874
       IP: 172.26.108.175
 HostName: starrocks-sandbox03
-.....。
+......
     Role: FOLLOWER
 IsMaster: false
-.....。
+......
    Alive: true
-.....。
+......
 3 rows in set (0.05 sec)
 ```
 

@@ -258,7 +258,7 @@ create table orders (
 PARTITION BY RANGE(`dt`) (
     PARTITION p20210820 VALUES [('2021-08-20'), ('2021-08-21')),
     PARTITION p20210821 VALUES [('2021-08-21'), ('2021-08-22')),
-    ..。
+    ...
     PARTITION p20210929 VALUES [('2021-09-29'), ('2021-09-30')),
     PARTITION p20210930 VALUES [('2021-09-30'), ('2021-10-01'))
 ) DISTRIBUTED BY HASH(order_id) BUCKETS 4
@@ -280,7 +280,7 @@ create table users (
     property1 tinyint NOT NULL,
     property2 tinyint NOT NULL,
     property3 tinyint NOT NULL,
-    ...。
+    ....
 ) PRIMARY KEY (user_id)
 DISTRIBUTED BY HASH(user_id) BUCKETS 4
 PROPERTIES("replication_num" = "3");

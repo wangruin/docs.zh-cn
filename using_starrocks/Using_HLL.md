@@ -11,7 +11,7 @@ HyperLogLog是一种近似的去重算法，能够使用极少的存储空间计
 
 * X=1， 概率P(X=1)=1/2
 * X=2， 概率P(X=2)=1/4
-* ..。
+* ...
 * X=n， 概率P(X=n)=(1/2)<sup>n</sup>
 
 我们用试验A构造随机试验B: 做N次独立重复试验A， 产生N个独立同分布的随机变量X<sub>1</sub>, X<sub>2</sub>, X<sub>3</sub>, ..., X<sub>N</sub>; 取这组随机变量的最大值为X<sub>max</sub>。结合极大似然估算的方法，N的估算值为2<sup>X<sub>max</sub></sup>。

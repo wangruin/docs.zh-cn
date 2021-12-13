@@ -30,8 +30,8 @@
 ### Syntax
 
   ```sql
-  SELECT ..。
-  FROM ..。
+  SELECT ...
+  FROM ...
   [ ... ]
   GROUP BY [
       , ... |
